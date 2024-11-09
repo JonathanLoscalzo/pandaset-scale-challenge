@@ -1,3 +1,15 @@
+import { CameraControls } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+
 export function App() {
-    return <h1>Hello world!</h1>;
-  }
+  return (
+    <div id="canvas-container">
+      <Canvas>
+        <mesh>
+          <boxGeometry />
+          <meshStandardMaterial />
+        </mesh>
+      </Canvas>
+    </div>
+  );
+}
