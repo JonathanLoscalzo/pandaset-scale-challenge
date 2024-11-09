@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import * as THREE from 'three';
 import { Cuboid, Frame, Point } from './types';
 
 export const transformToCuboid = (json: any): Cuboid => ({
@@ -7,16 +8,15 @@ export const transformToCuboid = (json: any): Cuboid => ({
   yaw: json['yaw'],
   stationary: json['stationary'],
   camera_used: json['camera_used'],
-  // TODO: check if this is correct
   position: {
-    x: json['position.y'],
-    y: json['position.z'],
-    z: json['position.x']
+    x: json['position.x'],
+    y: json['position.y'],
+    z: json['position.z']
   },
   dimensions: {
-    x: json['dimensions.y'],
-    y: json['dimensions.z'],
-    z: json['dimensions.x']
+    x: json['dimensions.x'],
+    y: json['dimensions.y'],
+    z: json['dimensions.z']
   },
   cuboids: {
     sibling_id: json['cuboids.sibling_id'],
@@ -24,10 +24,23 @@ export const transformToCuboid = (json: any): Cuboid => ({
   }
 });
 
-const transformToPoint = (json: any): Point => [json[1], json[2], json[0]];
+const transformToPoint = (json: any): Point => json;
 
 export const transformToFrame = (json: any): Frame => ({
   frame_id: json['frame_id'],
   points: json['points'].map(transformToPoint),
   cuboids: json['cuboids'].map(transformToCuboid)
 });
+
+export const generateColor = (z: number, zMin = -5, zMax = 5) => {
+  const t = (z - zMin) / (zMax - zMin);
+
+  // Definir los colores en RGB
+  const colorStart = new THREE.Color(0xffff00); // Amarillo
+  const colorEnd = new THREE.Color(0xff0000); // Rojo
+
+  // Interpolación entre amarillo y rojo a lo largo de la gama de Z
+  const color = colorStart.clone().lerp(colorEnd, t);
+
+  return color;
+};
