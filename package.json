@@ -7,7 +7,8 @@
     "build": "parcel build public/index.html --dist-dir ./dist",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
@@ -20,6 +21,8 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
     "globals": "^15.12.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "parcel": "^2.9.3",
     "prettier": "^3.3.3",
     "process": "^0.11.10",
@@ -33,5 +36,13 @@
     "react-dom": "^18.2.0",
     "react-use": "^17.4.0",
     "three": "^0.170.0"
+  },
+  "lint-staged": {
+    "*.{js, jsx,ts,tsx}": [
+      "eslint --quiet --fix"
+    ],
+    "*.{json,js,ts,jsx,tsx,html}": [
+      "prettier --write --ignore-unknown --config ./.prettierrc"
+    ]
   }
 }
