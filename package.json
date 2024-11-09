@@ -1,0 +1,26 @@
+{
+  "name": "pandaset-challenge",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html --dist-dir ./dist"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.156.0",
+    "buffer": "^5.5.0||^6.0.0",
+    "parcel": "^2.9.3",
+    "process": "^0.11.10",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.86.3",
+    "@react-three/fiber": "^8.14.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-use": "^17.4.0",
+    "three": "^0.170.0"
+  }
+}
