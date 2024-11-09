@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
@@ -38,10 +39,11 @@
     "three": "^0.170.0"
   },
   "lint-staged": {
-    "*.{js, jsx,ts,tsx}": [
-      "eslint --quiet --fix"
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --quiet --fix",
+      "prettier --write --ignore-unknown --config ./.prettierrc"
     ],
-    "*.{json,js,ts,jsx,tsx,html}": [
+    "*.{json,html}": [
       "prettier --write --ignore-unknown --config ./.prettierrc"
     ]
   }
