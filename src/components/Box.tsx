@@ -14,12 +14,13 @@ export function Box(props: { cuboid: Cuboid }) {
       position={[props.cuboid.position.x, props.cuboid.position.y, props.cuboid.position.z]}
       onPointerOver={(event) => (event.stopPropagation(), hover(true))}
       onPointerOut={(event) => (event.stopPropagation(), hover(false))}
+      rotation={[0, 0, props.cuboid.yaw]}
     >
       <boxGeometry
         args={[props.cuboid.dimensions.x, props.cuboid.dimensions.y, props.cuboid.dimensions.z]}
       />
       <meshStandardMaterial
-        color={hovered ? 'hotpink' : 'orange'}
+        color={hovered ? 'red' : 'cyan'}
         transparent
         opacity={0.5} // Semi-transparent faces
       />
