@@ -17,8 +17,10 @@ export default [
   reactPlugin.configs.flat['jsx-runtime'],
   {
     rules: {
-      'react/react-in-jsx-scope': 'off'
+      'react/react-in-jsx-scope': 'off',
+      'react/no-unknown-property': 'off'
     }
   },
   ...tseslint.configs.recommended,
+  { ignores: ['dist/*', 'public/frames/*'] }
 ];
