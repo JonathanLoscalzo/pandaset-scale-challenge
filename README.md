@@ -8,16 +8,23 @@ The idea is similar to [PandaSet by Hesai and Scale AI](https://pandaset.org/)
 
 ### Execution Locally
 
-1. To retrive frames: 
+1. Download frames: 
 ```bash
 bash scripts/get_frames.sh
 ```
 
-2. start the app:
+2. Start static serving
+```bash
+npm run frames-serve
+```
+
+3. start the app:
 ```bash
 npm run start
 ```
 
+4. Open your browser at [localhost](http://localhost:1234)
+  1. in the left upper corner, you will find a "timetravel" combobox (it could be nice)
 ### Libs
 
 parcel:
@@ -33,7 +40,7 @@ r3f:
 
 - [x] **Functionality**: Does the application fulfill the primary requirements?
   - OK: Cuboids and Points are being rendered correctly
-  - ?: They don't look in the correct axis, they look rotated
+  - (?): They don't look in the correct axis, they look rotated (it is a camera problem more than data)
 
 - [x] **Code Quality**: Is the code well-organized, easy to read, and follows best practices?
   - OK: it doesn't need a whole big folder structure, the current codebase looks similar to:
@@ -68,6 +75,9 @@ r3f:
 
 - [x] **Visualization**: Is the visualization effective, intuitive, and aesthetically pleasing?
   - IMPROVE: colors
+  - IMPROVE: the application is not capable of render all the points, but it renders many of them.
+  - IMPROVE: the timeline combobox is not good as I want. Use a Slider or something different
+
 
 - [x] **Performance**: Does the app run smoothly, even with large datasets?
   - OK: working correctly for a huge points size
@@ -76,7 +86,9 @@ r3f:
 
 - **Usability**: Is the application user-friendly and accessible?
   - OK: It is rendering things correctly
-  - IMPROVE: add timeline for multiples frames
+  - IMPROVE: colors are not good enough
+  - IMPROVE: Navigation with CameraControls are not good, it is a mess
+  - IMPROVE: add Keyboard control like [minecraft alternative](https://codesandbox.io/p/sandbox/vkgi6?file=%2Fsrc%2FApp.js)
 
 ### Refs
 
