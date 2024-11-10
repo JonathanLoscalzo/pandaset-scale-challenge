@@ -33,6 +33,7 @@ export const transformToFrame = (json: any): Frame => ({
 });
 
 export const generateColor = (z: number, zMin = -5, zMax = 5) => {
+  // TODO: review this function, the colors are not looking good
   const t = (z - zMin) / (zMax - zMin);
 
   // Definir los colores en RGB
