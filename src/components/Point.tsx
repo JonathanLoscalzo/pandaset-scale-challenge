@@ -6,7 +6,8 @@ import { useMemo } from 'react';
 export function Points(props: { points: PointType[] }) {
   // Due to performances issues related to the resizing of a buffered array,
   // we limit the number of points to render to be equals between re-renderings
-  const MAX_POINTS = 1000000;
+  const MAX_POINTS =
+    'MAX_POINTS' in process.env ? parseInt(process.env['MAX_POINTS'] as string) : 1000000;
   const { positions, colors } = useMemo(() => {
     const points = props.points.slice(0, MAX_POINTS);
 
